@@ -16,7 +16,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
@@ -31,13 +30,14 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import principledev.netheriteroadii.NetheriteRoadII;
 import principledev.netheriteroadii.common.PurifierContainerItemNumber;
-import principledev.netheriteroadii.common.PurifierData;
+import principledev.netheriteroadii.common.utils.PurifierData;
 import principledev.netheriteroadii.common.container.AncientPurifierContainer;
-import principledev.netheriteroadii.init.BlockRegister;
-import principledev.netheriteroadii.init.ClientRegister;
+import principledev.netheriteroadii.common.init.BlockRegister;
+import principledev.netheriteroadii.common.init.ClientRegister;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.stream.IntStream;
 
 @SuppressWarnings("NullableProblems")
 public class TileEntityPurifier extends LockableLootTileEntity implements ITickableTileEntity, INamedContainerProvider, ISidedInventory {
@@ -66,7 +66,9 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
         super.write(compound);
         compound.putInt("energy",data.storage.getEnergyStored());
         compound.putInt("cool_down",data.cool_down);
-        ItemStackHelper.saveAllItems(compound,data.inventory);
+        if (!this.checkLootAndWrite(compound)) {
+            ItemStackHelper.saveAllItems(compound, this.stacks);
+        }
         return compound;
     }
 
@@ -74,7 +76,10 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
     public void read(BlockState state, CompoundNBT nbt) {
         super.read(state, nbt);
         data.cool_down = nbt.getInt("cool_down");
-        ItemStackHelper.loadAllItems(nbt,data.inventory);
+        if (!this.checkLootAndRead(nbt)) {
+            this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
+        }
+        ItemStackHelper.loadAllItems(nbt, this.stacks);
         data.storage.receiveEnergy(nbt.getInt("energy"),false);
     }
     @Nonnull
@@ -92,9 +97,6 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
     }
     @Override
     public SUpdateTileEntityPacket getUpdatePacket() {
-        // 第一个参数是要同步的 TileEntity 它自己。
-        // 第二个参数是幻数，Forge patch 后的实现中，如果不是原版的 TileEntity，这个参数就没有意义。
-        // 第三个就是要同步的数据了，你会在 onDataPacket 中拿到它。
         CompoundNBT compound = new CompoundNBT();
         compound.putInt("energy",data.storage.getEnergyStored());
         return new SUpdateTileEntityPacket(this.pos, 1, compound);
@@ -163,7 +165,7 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
 
     @Override
     public int[] getSlotsForFace(Direction side) {
-        return new int[0];
+        return IntStream.range(0, this.getSizeInventory()).toArray();
     }
 
     @Override
@@ -173,7 +175,7 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
 
     @Override
     public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
-        return true;
+        return index != 0;
     }
 
     @Override

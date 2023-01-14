@@ -1,17 +1,16 @@
 package principledev.netheriteroadii.client.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import principledev.netheriteroadii.NetheriteRoadII;
 import principledev.netheriteroadii.blocks.tileEntity.TileEntityPurifier;
-import principledev.netheriteroadii.common.PurifierData;
+import principledev.netheriteroadii.common.utils.PurifierData;
 import principledev.netheriteroadii.common.container.AncientPurifierContainer;
 
 @SuppressWarnings("NullableProblems")
@@ -33,6 +32,21 @@ public class AncientPurifierGui extends ContainerScreen<AncientPurifierContainer
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         renderHoveredTooltip(matrixStack, mouseX, mouseY);
     }
+
+    private void getEnergyProgressBar(){
+        if(getIndex() <= 0){
+            Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation(NetheriteRoadII.MOD_ID, "textures/gui/energy/0.png"));
+        }
+        else {
+            Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation(NetheriteRoadII.MOD_ID, "textures/gui/energy/" + getIndex() + ".png"));
+        }
+    }
+
+    private int getIndex(){
+        int energy = this.purifier.data.storage.getEnergyStored();
+        return energy / 1250;
+    }
+
     @Override
     protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
         //new TranslationTextComponent("gui.netheriteroadii.ancient_purifier.energy" + this.purifier.data.storage.getEnergyStored() + "/&3" + PurifierData.MAX_RF + "&4RF"),
@@ -43,7 +57,7 @@ public class AncientPurifierGui extends ContainerScreen<AncientPurifierContainer
         this.font.drawString(matrixStack, "/", (float)this.titleX + 75, (float)this.titleY + 10, 4210752);
         this.font.drawString(matrixStack, String.valueOf(PurifierData.MAX_RF), (float)this.titleX + 85, (float)this.titleY + 10, 0x00800d);
         this.font.drawString(matrixStack, "RF", (float)this.titleX + 120, (float)this.titleY + 10, 0x800000);
-        if(this.purifier.data.storage.getEnergyStored() == 40000 && this.purifier.data.inventory.get(0).getItem() == Items.ANCIENT_DEBRIS){
+        if(this.purifier.data.isActive()){
             this.font.drawText(matrixStack,
                     new TranslationTextComponent("gui.netheriteroadii.ancient_purifier.active"), (float)this.titleX, (float)this.titleY + 20, 0x00800d);
         }
@@ -60,5 +74,9 @@ public class AncientPurifierGui extends ContainerScreen<AncientPurifierContainer
         int i = (this.width - this.xSize) / 2;
         int j = (this.height - this.ySize) / 2;
         blit(matrixStack, i, j, 0, 0, xSize, ySize, this.textureWidth, textureHeight);
+        getEnergyProgressBar();
+        blit(matrixStack, this.guiLeft + 68, guiTop + 43, 0, 0, 32, 8, 32, 8);
+        RenderSystem.disableBlend();
+
     }
 }

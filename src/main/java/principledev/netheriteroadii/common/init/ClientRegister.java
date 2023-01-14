@@ -1,7 +1,6 @@
-package principledev.netheriteroadii.init;
+package principledev.netheriteroadii.common.init;
 
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.common.extensions.IForgeContainerType;

@@ -1,4 +1,4 @@
-package principledev.netheriteroadii.init;
+package principledev.netheriteroadii.common.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntityType;

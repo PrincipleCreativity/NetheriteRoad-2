@@ -18,9 +18,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import principledev.netheriteroadii.client.gui.AncientPurifierGui;
-import principledev.netheriteroadii.init.BlockRegister;
-import principledev.netheriteroadii.init.ClientRegister;
-import principledev.netheriteroadii.init.ItemRegister;
+import principledev.netheriteroadii.common.init.BlockRegister;
+import principledev.netheriteroadii.common.init.ClientRegister;
+import principledev.netheriteroadii.common.init.ItemRegister;
 
 import java.util.stream.Collectors;
 
@@ -32,7 +32,7 @@ public class NetheriteRoadII {
     public static final ItemGroup TAB = new ItemGroup("netheriteroadii.tab") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.NETHERITE_PICKAXE);
+            return new ItemStack(ItemRegister.CIRCULATOR.get());
         }
     };
     // Directly reference a log4j logger.
