@@ -15,8 +15,10 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
@@ -38,9 +40,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("NullableProblems")
-public class TileEntityPurifier extends TileEntity implements ITickableTileEntity, INamedContainerProvider, ISidedInventory {
+public class TileEntityPurifier extends LockableLootTileEntity implements ITickableTileEntity, INamedContainerProvider, ISidedInventory {
     public PurifierData data;
     private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
+    private NonNullList<ItemStack> stacks = NonNullList.withSize(3, ItemStack.EMPTY);
     public TileEntityPurifier() {
         super(BlockRegister.TILE_ENTITY_PURIFIER.get());
         data = new PurifierData();
@@ -142,10 +145,20 @@ public class TileEntityPurifier extends TileEntity implements ITickableTileEntit
         return new TranslationTextComponent("gui." + NetheriteRoadII.MOD_ID + ".ancient_purifier_container");
     }
 
+    @Override
+    protected ITextComponent getDefaultName() {
+        return new TranslationTextComponent("gui." + NetheriteRoadII.MOD_ID + ".ancient_purifier_container");
+    }
+
     @Nullable
     @Override
     public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
         return new AncientPurifierContainer(ClientRegister.ANCIENT_PURIFIER_CONTAINER.get(), p_createMenu_1_, new PurifierContainerItemNumber(), p_createMenu_2_,this.pos);
+    }
+
+    @Override
+    protected Container createMenu(int id, PlayerInventory player) {
+        return null;
     }
 
     @Override
@@ -160,7 +173,7 @@ public class TileEntityPurifier extends TileEntity implements ITickableTileEntit
 
     @Override
     public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
-        return false;
+        return true;
     }
 
     @Override
@@ -225,6 +238,17 @@ public class TileEntityPurifier extends TileEntity implements ITickableTileEntit
     public void clear() {
         data.inventory.clear();
     }
+
+    @Override
+    protected NonNullList<ItemStack> getItems() {
+        return this.stacks;
+    }
+
+    @Override
+    protected void setItems(NonNullList<ItemStack> itemsIn) {
+        this.stacks = itemsIn;
+    }
+
 
     @Override
     public void remove() {

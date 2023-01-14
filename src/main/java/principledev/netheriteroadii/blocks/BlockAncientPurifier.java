@@ -6,6 +6,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.inventory.container.Container;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
@@ -50,4 +52,38 @@ public class BlockAncientPurifier extends Block {
         }
         return ActionResultType.SUCCESS;
     }
+
+    @Override
+    public boolean eventReceived(BlockState state, World world, BlockPos pos, int eventID, int eventParam) {
+        super.eventReceived(state, world, pos, eventID, eventParam);
+        TileEntity tileentity = world.getTileEntity(pos);
+        return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
+    }
+
+    @Override
+    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tileentity = world.getTileEntity(pos);
+            if (tileentity instanceof TileEntityPurifier) {
+                InventoryHelper.dropInventoryItems(world, pos, (TileEntityPurifier) tileentity);
+                world.updateComparatorOutputLevel(pos, this);
+            }
+            super.onReplaced(state, world, pos, newState, isMoving);
+        }
+    }
+
+    @Override
+    public boolean hasComparatorInputOverride(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public int getComparatorInputOverride(BlockState blockState, World world, BlockPos pos) {
+        TileEntity tileentity = world.getTileEntity(pos);
+        if (tileentity instanceof TileEntityPurifier)
+            return Container.calcRedstoneFromInventory((TileEntityPurifier) tileentity);
+        else
+            return 0;
+    }
+
 }
