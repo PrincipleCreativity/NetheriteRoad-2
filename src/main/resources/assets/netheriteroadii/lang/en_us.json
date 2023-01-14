@@ -1,0 +1,8 @@
+{
+  "itemGroup.netheriteroadii.tab":"Netherite Road 2",
+  "block.netheriteroadii.ancient_purifier":"Ancient Purifier",
+  "gui.netheriteroadii.ancient_purifier_container": "Ancient Purifier",
+  "gui.netheriteroadii.ancient_purifier.energy": "Energy: ",
+  "gui.netheriteroadii.ancient_purifier.active": "Active...",
+  "gui.netheriteroadii.ancient_purifier.nonactive": "Nonactive..."
+}

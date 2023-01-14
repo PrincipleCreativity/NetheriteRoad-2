@@ -1,0 +1,8 @@
+{
+  "itemGroup.netheriteroadii.tab":"下界之路 2",
+  "block.netheriteroadii.ancient_purifier":"远古提纯器",
+  "gui.netheriteroadii.ancient_purifier_container": "远古提纯器",
+  "gui.netheriteroadii.ancient_purifier.energy": "能量：",
+  "gui.netheriteroadii.ancient_purifier.active": "工作中……",
+  "gui.netheriteroadii.ancient_purifier.nonactive": "停止工作……"
+}

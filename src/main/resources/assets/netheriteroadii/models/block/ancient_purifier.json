@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "netheriteroadii:items/bluepaper",
+    "down": "netheriteroadii:blocks/blockdefault",
+    "up": "netheriteroadii:blocks/block_activator",
+    "north": "netheriteroadii:blocks/blockdefault",
+    "south": "netheriteroadii:blocks/blockdefault",
+    "west": "netheriteroadii:blocks/blockdefault",
+    "east": "netheriteroadii:blocks/blockdefault"
+  }
+}
