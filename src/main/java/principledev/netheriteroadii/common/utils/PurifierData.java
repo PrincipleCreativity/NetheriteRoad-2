@@ -19,4 +19,7 @@ public class PurifierData {
     public boolean isActive(){
         return storage.getEnergyStored() > 0 && inventory.get(0).getItem() == Items.ANCIENT_DEBRIS;
     }
+    public boolean isWork(){
+        return storage.canReceive();
+    }
 }

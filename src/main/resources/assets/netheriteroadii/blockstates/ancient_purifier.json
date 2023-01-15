@@ -1,7 +1,36 @@
 {
   "variants": {
-    "": {
-      "model": "netheriteroadii:block/ancient_purifier"
+    "facing=east,lit=false": {
+      "model": "netheriteroadii:block/ancient_purifier",
+      "y": 360
+    },
+    "facing=east,lit=true": {
+      "model": "netheriteroadii:block/ancient_purifier_lit",
+      "y": 360
+    },
+    "facing=north,lit=false": {
+      "model": "netheriteroadii:block/ancient_purifier",
+      "y": 270
+    },
+    "facing=north,lit=true": {
+      "model": "netheriteroadii:block/ancient_purifier_lit",
+      "y": 270
+    },
+    "facing=south,lit=false": {
+      "model": "netheriteroadii:block/ancient_purifier",
+      "y": 450
+    },
+    "facing=south,lit=true": {
+      "model": "netheriteroadii:block/ancient_purifier_lit",
+      "y": 450
+    },
+    "facing=west,lit=false": {
+      "model": "netheriteroadii:block/ancient_purifier",
+      "y": 540
+    },
+    "facing=west,lit=true": {
+      "model": "netheriteroadii:block/ancient_purifier_lit",
+      "y": 540
     }
   }
 }

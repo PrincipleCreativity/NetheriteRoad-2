@@ -10,7 +10,7 @@ import principledev.netheriteroadii.NetheriteRoadII;
 public class NetheriteShears extends ShearsItem {
 
     public NetheriteShears() {
-        super(new Properties().group(NetheriteRoadII.TAB).isImmuneToFire().maxDamage(200));
+        super(new Properties().group(NetheriteRoadII.TAB).isImmuneToFire().maxDamage(2031));
     }
 
     @Override

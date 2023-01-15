@@ -1,5 +1,6 @@
 package principledev.netheriteroadii.blocks.tileEntity;
 
+import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -33,7 +34,7 @@ import principledev.netheriteroadii.common.PurifierContainerItemNumber;
 import principledev.netheriteroadii.common.utils.PurifierData;
 import principledev.netheriteroadii.common.container.AncientPurifierContainer;
 import principledev.netheriteroadii.common.init.BlockRegister;
-import principledev.netheriteroadii.common.init.ClientRegister;
+import principledev.netheriteroadii.common.init.CommonRegister;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -139,6 +140,9 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
             }
             world.notifyBlockUpdate(pos,getBlockState(),getBlockState(), Constants.BlockFlags.DEFAULT);
         }
+        if(this.world != null){
+            this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(AbstractFurnaceBlock.LIT, this.data.isWork()), 3);
+        }
     }
 
 
@@ -155,7 +159,7 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
     @Nullable
     @Override
     public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-        return new AncientPurifierContainer(ClientRegister.ANCIENT_PURIFIER_CONTAINER.get(), p_createMenu_1_, new PurifierContainerItemNumber(), p_createMenu_2_,this.pos);
+        return new AncientPurifierContainer(CommonRegister.ANCIENT_PURIFIER_CONTAINER.get(), p_createMenu_1_, new PurifierContainerItemNumber(), p_createMenu_2_,this.pos);
     }
 
     @Override

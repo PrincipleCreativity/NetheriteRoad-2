@@ -7,10 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import principledev.netheriteroadii.NetheriteRoadII;
 import principledev.netheriteroadii.common.items.NetheriteItem;
-import principledev.netheriteroadii.common.items.misc.GoldString;
-import principledev.netheriteroadii.common.items.misc.MicronGoldString;
-import principledev.netheriteroadii.common.items.misc.NanoGoldString;
-import principledev.netheriteroadii.common.items.misc.NanoGoldStringScreen;
+import principledev.netheriteroadii.common.items.misc.*;
 import principledev.netheriteroadii.common.items.tools.Circulator;
 import principledev.netheriteroadii.common.items.tools.NetheriteShears;
 
@@ -27,6 +24,11 @@ public class ItemRegister {
     public static final RegistryObject<Item> MICRON_GOLD_STRING;
     public static final RegistryObject<Item> NANOGOLD_STRING;
     public static final RegistryObject<Item> NANOGOLD_STRING_SCREEN;
+    public static final RegistryObject<Item> S_NANOGOLD_STRING_SCREEN;
+    public static final RegistryObject<Item> VS_NANOGOLD_STRING_SCREEN;
+
+    public static final RegistryObject<Item> GOLD_PLATE;
+
 
     //Tools
 
@@ -44,6 +46,9 @@ public class ItemRegister {
         MICRON_GOLD_STRING = ITEMS.register("micron_gold_string", MicronGoldString::new);
         NANOGOLD_STRING = ITEMS.register("nanogold_string", NanoGoldString::new);
         NANOGOLD_STRING_SCREEN = ITEMS.register("nanogold_string_screen", NanoGoldStringScreen::new);
+        S_NANOGOLD_STRING_SCREEN = ITEMS.register("s_nanogold_string_screen", NanoGoldStringScreen::new);
+        VS_NANOGOLD_STRING_SCREEN = ITEMS.register("vs_nanogold_string_screen", NanoGoldStringScreen::new);
+        GOLD_PLATE = ITEMS.register("gold_plate", GoldPlate::new);
         CIRCULATOR = ITEMS.register("circulator", Circulator::new);
         NETHERITE_SHEARS = ITEMS.register("netherite_shears", NetheriteShears::new);
         ANCIENT_PURIFIER_ITEM = ITEMS.register("ancient_purifier", () -> new BlockItem(BlockRegister.ANCIENT_PURIFIER.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
