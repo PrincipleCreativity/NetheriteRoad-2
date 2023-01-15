@@ -1,5 +1,5 @@
 # NetheriteRoad-2
-A high-level version of Netherite Alloy tech/utility/adventure mod.
+A high-level version of Netherite Alloy ***tech/utility/adventure*** mod.
  
 Netherite Road 2 repositoriy description|下界之路2(Netherite Road 2)仓库说明
 ----
