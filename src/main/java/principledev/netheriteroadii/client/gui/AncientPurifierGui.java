@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import principledev.netheriteroadii.NetheriteRoadII;
-import principledev.netheriteroadii.blocks.tileEntity.TileEntityPurifier;
+import principledev.netheriteroadii.common.blocks.tileEntity.TileEntityPurifier;
 import principledev.netheriteroadii.common.utils.PurifierData;
 import principledev.netheriteroadii.common.container.AncientPurifierContainer;
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "netheriteroadii:netherite",
+  "ingredients": [
+    {
+      "item": "netheriteroadii:netherite_shears"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "result": {
+    "item": "netheriteroadii:netherite_plate",
+    "count": 6
+  }
+}

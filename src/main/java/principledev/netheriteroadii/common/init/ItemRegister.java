@@ -17,9 +17,12 @@ public class ItemRegister {
     //Item Registry
 
     //MISC
+    public static final RegistryObject<Item> SLIVER_INGOT;
+    public static final RegistryObject<Item> SLIVER_HEAT_PIPE;
     public static final RegistryObject<Item> NETHERITE_STICK;
     public static final RegistryObject<Item> NETHERITE_NUGGET;
     public static final RegistryObject<Item> NETHERITE_PLATE;
+    public static final RegistryObject<Item> NETHERITE_FIXING_PLATE;
     public static final RegistryObject<Item> GOLD_STRING;
     public static final RegistryObject<Item> MICRON_GOLD_STRING;
     public static final RegistryObject<Item> NANOGOLD_STRING;
@@ -37,11 +40,15 @@ public class ItemRegister {
 
     //Block Item
     public static final RegistryObject<Item> ANCIENT_PURIFIER_ITEM;
+    public static final RegistryObject<Item> SLIVER_ORE_ITEM;
 
     static{
+        SLIVER_INGOT = ITEMS.register("sliver_ingot", SliverItem::new);
+        SLIVER_HEAT_PIPE = ITEMS.register("sliver_heat_pipe", SliverItem::new);
         NETHERITE_STICK = ITEMS.register("netherite_stick", NetheriteItem::new);
         NETHERITE_NUGGET = ITEMS.register("netherite_nugget", NetheriteItem::new);
         NETHERITE_PLATE = ITEMS.register("netherite_plate", NetheriteItem::new);
+        NETHERITE_FIXING_PLATE = ITEMS.register("netherite_fixing_plate", NetheriteItem::new);
         GOLD_STRING = ITEMS.register("gold_string", GoldString::new);
         MICRON_GOLD_STRING = ITEMS.register("micron_gold_string", MicronGoldString::new);
         NANOGOLD_STRING = ITEMS.register("nanogold_string", NanoGoldString::new);
@@ -51,6 +58,8 @@ public class ItemRegister {
         GOLD_PLATE = ITEMS.register("gold_plate", GoldPlate::new);
         CIRCULATOR = ITEMS.register("circulator", Circulator::new);
         NETHERITE_SHEARS = ITEMS.register("netherite_shears", NetheriteShears::new);
+
         ANCIENT_PURIFIER_ITEM = ITEMS.register("ancient_purifier", () -> new BlockItem(BlockRegister.ANCIENT_PURIFIER.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
+        SLIVER_ORE_ITEM = ITEMS.register("sliver_ore", ()->new BlockItem(BlockRegister.SLIVER_ORE.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
     }
 }

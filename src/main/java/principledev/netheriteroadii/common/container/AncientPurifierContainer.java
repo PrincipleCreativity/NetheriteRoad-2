@@ -5,12 +5,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.FurnaceContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.math.BlockPos;
-import principledev.netheriteroadii.blocks.tileEntity.TileEntityPurifier;
+import principledev.netheriteroadii.common.blocks.tileEntity.TileEntityPurifier;
 import principledev.netheriteroadii.common.slot.PurifierResultSlot;
 
 import javax.annotation.Nullable;

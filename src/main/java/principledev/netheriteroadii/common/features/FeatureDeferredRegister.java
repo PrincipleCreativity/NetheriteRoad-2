@@ -1,0 +1,19 @@
+package principledev.netheriteroadii.common.features;
+
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraftforge.registries.ForgeRegistries;
+import principledev.netheriteroadii.common.init.WrappedDeferredRegister;
+
+import java.util.function.Supplier;
+
+public class FeatureDeferredRegister extends WrappedDeferredRegister<Feature<?>> {
+
+    public FeatureDeferredRegister(String modid) {
+        super(modid, ForgeRegistries.FEATURES);
+    }
+
+    public <CONFIG extends IFeatureConfig, FEATURE extends Feature<CONFIG>> FeatureRegistryObject<CONFIG, FEATURE> register(String name, Supplier<FEATURE> sup) {
+        return register(name, sup, FeatureRegistryObject::new);
+    }
+}

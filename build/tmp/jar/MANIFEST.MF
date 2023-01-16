@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: netherite_road
+Implementation-Version: 2.0-SNAPSHOT-Alpha
+Specification-Vendor: PrincipleDev, TeamThreshold
+Specification-Title: netherite_road
+Implementation-Timestamp: 2023-01-17T03:04:39+0800
+Specification-Version: 1
+Implementation-Vendor: PrincipleDev, TeamThreshold
+

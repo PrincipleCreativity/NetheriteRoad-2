@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "netheriteroadii:gold",
+  "ingredients": [
+    {
+      "item": "netheriteroadii:netherite_shears"
+    },
+    {
+      "item": "netheriteroadii:gold_string"
+    },
+    {
+      "item": "netheriteroadii:circulator"
+    }
+  ],
+  "result": {
+    "item": "netheriteroadii:micron_gold_string",
+    "count": 64
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "netheriteroadii:tools",
+  "pattern": [
+    "XYX",
+    "YZY",
+    "XYX"
+  ],
+  "key": {
+    "Y": {
+      "item": "minecraft:redstone_torch"
+    },
+    "X": {
+      "item": "netheriteroadii:netherite_fixing_plate"
+    },
+    "Z": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "netheriteroadii:circulator"
+  }
+}

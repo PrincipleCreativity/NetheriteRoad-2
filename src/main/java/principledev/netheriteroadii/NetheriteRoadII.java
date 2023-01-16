@@ -3,7 +3,9 @@ package principledev.netheriteroadii;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -20,6 +22,7 @@ import principledev.netheriteroadii.client.gui.AncientPurifierGui;
 import principledev.netheriteroadii.common.init.BlockRegister;
 import principledev.netheriteroadii.common.init.CommonRegister;
 import principledev.netheriteroadii.common.init.ItemRegister;
+import principledev.netheriteroadii.common.init.NeroFeatures;
 import principledev.netheriteroadii.common.utils.NetheriteRoadTab;
 
 import java.util.stream.Collectors;
@@ -34,6 +37,7 @@ public class NetheriteRoadII {
     public NetheriteRoadII() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        NeroFeatures.FEATURES.register(bus);
         CommonRegister.CONTAINERS.register(bus);
         BlockRegister.BLOCKS.register(bus);
         BlockRegister.TILE_ENTITIES.register(bus);
@@ -74,5 +78,10 @@ public class NetheriteRoadII {
     public void onServerStarting(FMLServerStartingEvent event) {
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
+    }
+
+    @SubscribeEvent
+    public void addFeatureToBiomes(BiomeLoadingEvent event) {
+        event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).add(() -> NeroFeatures.SLIVER_ORE_FEATURE.getFeature().configuredFeature);
     }
 }

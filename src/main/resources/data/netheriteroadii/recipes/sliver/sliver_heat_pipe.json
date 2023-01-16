@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "netheriteroadii:sliver",
+  "ingredients": [
+    {
+      "item": "netheriteroadii:netherite_shears"
+    },
+    {
+      "item": "netheriteroadii:sliver_ingot"
+    }
+  ],
+  "result": {
+    "item": "netheriteroadii:sliver_heat_pipe"
+  }
+}
