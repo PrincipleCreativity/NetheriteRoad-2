@@ -1,6 +1,6 @@
 # Netherite Road 2
 
-<div align ="ceter">
+<div align ="center"><img src="https://github.com/MCPrinciple/.github/blob/main/pictures/netheriteroad2.png"></div>
 
 A **high version** of Netherite Alloy ***tech/utility/adventure*** mod.
  
