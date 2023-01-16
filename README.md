@@ -10,7 +10,7 @@ Netherite Road 2 repositoriy description|下界之路2(Netherite Road 2)仓库�
 1. The **Netherite Road** series of modules and derivatives are open source under the [GNU GPL V3](https://github.com/MCPrinciple/NetheriteRoad-2/blob/main/LICENSE) license, which allows compilation and distribution of compiled files and source code.  
 2. The code writing specifications of the **Netherite Road** series should refer to the Alibaba/Google development model, and Minecraft Mod development should be written in a unified and common way.  
 3. The Netherite Road series can be extended to lower versions, but the order should be as follows: Version >=1.16.5 is **Netherite Road 2**, Version = 1.12.2 is **Netherite Road 1/Netherite Road**, and Version < 1.12.2 is **Netherite Road 0**. The mods corresponding to game version < 1.16.5 should try to restore the higher version of the Netherite Alloy content instead of expanding the Netherite Alloy content, and the **Netherite Road 2** is the opposite.  
-4. **Netherite Road** series* mod source code and compiled files* are **** open source and free, and any reselling is strictly prohibited! Once discovered, prosecution will be carried out. ***
+4. **Netherite Road** series mod source code and compiled files are ***open source and free, and any reselling is strictly prohibited! Once discovered, prosecution will be carried out.***
 
 ----
 
