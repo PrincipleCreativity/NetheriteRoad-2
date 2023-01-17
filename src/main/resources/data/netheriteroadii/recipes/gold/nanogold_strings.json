@@ -3,7 +3,7 @@
   "group": "netheriteroadii:gold",
   "ingredients": [
     {
-      "item": "netheriteroadii:netherite_shears"
+      "tag": "forge:shears"
     },
     {
       "item": "netheriteroadii:micron_gold_string"

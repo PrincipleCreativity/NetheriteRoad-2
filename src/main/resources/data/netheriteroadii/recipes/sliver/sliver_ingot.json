@@ -2,9 +2,9 @@
   "type": "minecraft:smelting",
   "group": "netheriteroadii:sliver",
   "ingredient": {
-    "item": "netheriteroadii:sliver_ore"
+    "tag": "forge:ores/sliver"
   },
   "result": "netheriteroadii:sliver_ingot",
-  "experience": 10,
-  "cookingtime": 4
+  "experience": 1,
+  "cookingtime": 200
 }

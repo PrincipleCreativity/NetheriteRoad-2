@@ -6,7 +6,7 @@
       "item": "netheriteroadii:netherite_shears"
     },
     {
-      "item": "netheriteroadii:netherite_plate"
+      "tag": "forge:plates/netherite"
     }
   ],
   "result": {

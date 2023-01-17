@@ -3,10 +3,11 @@
   "group": "netheriteroadii:sliver",
   "ingredients": [
     {
-      "item": "netheriteroadii:netherite_shears"
+      "tag": "forge:shears"
     },
     {
-      "item": "netheriteroadii:sliver_ingot"
+      "item": "netheriteroadii:sliver_ingot",
+      "tag": "forge:ingots/sliver"
     }
   ],
   "result": {

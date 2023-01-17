@@ -31,12 +31,11 @@ import java.util.List;
 import java.util.function.ToIntFunction;
 
 @SuppressWarnings("NullableProblems")
-public class BlockAncientPurifier extends Block {
+public class BlockAncientPurifier extends NetheriteOrAncientBlock {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public BlockAncientPurifier() {
-        super(Properties.create(Material.ANVIL).sound(SoundType.NETHERITE).notSolid().hardnessAndResistance(5f, 50f).setLightLevel(getLightValueLit(5)).harvestLevel(4)
-                .harvestTool(ToolType.PICKAXE).setRequiresTool());
+        super(Properties.create(Material.ANVIL).notSolid().setLightLevel(getLightValueLit(5)));
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, Boolean.FALSE));
     }
     @Override

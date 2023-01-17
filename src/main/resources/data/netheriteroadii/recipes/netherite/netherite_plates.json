@@ -6,7 +6,7 @@
       "item": "netheriteroadii:netherite_shears"
     },
     {
-      "item": "minecraft:netherite_ingot"
+      "tag": "forge:ingots/netherite"
     }
   ],
   "result": {

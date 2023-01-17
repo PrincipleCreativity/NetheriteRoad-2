@@ -11,11 +11,16 @@
       "item": "minecraft:air"
     },
     "A": {
-      "item": "netheriteroadii:netherite_nugget"
+      "tag": "forge:nuggets/netherite"
     },
-    "B": {
-      "item": "netheriteroadii:netherite_stick"
-    }
+    "B": [
+      {
+        "tag": "forge:rods/netherite"
+      },
+      {
+        "tag": "forge:sticks/netherite"
+      }
+    ]
   },
   "result": {
     "item": "netheriteroadii:netherite_shears",

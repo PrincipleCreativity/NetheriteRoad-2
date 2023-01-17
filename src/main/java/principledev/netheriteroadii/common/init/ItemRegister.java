@@ -40,6 +40,7 @@ public class ItemRegister {
 
     //Block Item
     public static final RegistryObject<Item> ANCIENT_PURIFIER_ITEM;
+    public static final RegistryObject<Item> ANCIENT_ROCK;
     public static final RegistryObject<Item> SLIVER_ORE_ITEM;
 
     static{
@@ -60,6 +61,7 @@ public class ItemRegister {
         NETHERITE_SHEARS = ITEMS.register("netherite_shears", NetheriteShears::new);
 
         ANCIENT_PURIFIER_ITEM = ITEMS.register("ancient_purifier", () -> new BlockItem(BlockRegister.ANCIENT_PURIFIER.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
-        SLIVER_ORE_ITEM = ITEMS.register("sliver_ore", ()->new BlockItem(BlockRegister.SLIVER_ORE.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
+        ANCIENT_ROCK = ITEMS.register("ancient_rock", () -> new BlockItem(BlockRegister.ANCIENT_ROCK.get(), new Item.Properties().group(NetheriteRoadII.TAB).isImmuneToFire()));
+        SLIVER_ORE_ITEM = ITEMS.register("sliver_ore", () -> new BlockItem(BlockRegister.SLIVER_ORE.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
     }
 }

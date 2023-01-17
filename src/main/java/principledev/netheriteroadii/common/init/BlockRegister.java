@@ -1,12 +1,15 @@
 package principledev.netheriteroadii.common.init;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import principledev.netheriteroadii.NetheriteRoadII;
 import principledev.netheriteroadii.common.blocks.BlockAncientPurifier;
+import principledev.netheriteroadii.common.blocks.NetheriteOrAncientBlock;
 import principledev.netheriteroadii.common.blocks.SliverOreBlock;
 import principledev.netheriteroadii.common.blocks.tileEntity.TileEntityPurifier;
 
@@ -16,6 +19,7 @@ public class BlockRegister {
 
     //Block Registry
     public static final RegistryObject<Block> ANCIENT_PURIFIER;
+    public static final RegistryObject<Block> ANCIENT_ROCK;
     public static final RegistryObject<Block> SLIVER_ORE;
 
     //TileEntity Registry
@@ -24,6 +28,7 @@ public class BlockRegister {
     static{
         ANCIENT_PURIFIER = BLOCKS.register("ancient_purifier", BlockAncientPurifier::new);
         SLIVER_ORE = BLOCKS.register("sliver_ore", SliverOreBlock::new);
+        ANCIENT_ROCK = BLOCKS.register("ancient_rock", () -> new NetheriteOrAncientBlock(AbstractBlock.Properties.create(Material.ROCK)));
 
         TILE_ENTITY_PURIFIER = TILE_ENTITIES.register("ancient_purifier_entity", () -> TileEntityType
                 .Builder.create(TileEntityPurifier::new, ANCIENT_PURIFIER.get())

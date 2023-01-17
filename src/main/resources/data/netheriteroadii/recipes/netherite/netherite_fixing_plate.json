@@ -7,11 +7,16 @@
     "XYX"
   ],
   "key": {
-    "X": {
-      "item": "netheriteroadii:netherite_stick"
-    },
+    "X": [
+      {
+        "tag": "forge:rods/netherite"
+      },
+      {
+        "tag": "forge:sticks/netherite"
+      }
+    ],
     "Y": {
-      "item": "netheriteroadii:netherite_plate"
+      "tag": "forge:plates/netherite"
     }
   },
   "result": {
