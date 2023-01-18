@@ -17,7 +17,7 @@ import principledev.netheriteroadii.common.init.BlockRegister;
 import java.util.Random;
 
 public class SliverOreFeature extends OreFeature {
-    public final ConfiguredFeature<?, ?> configuredFeature = this.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegister.SLIVER_ORE.get().getDefaultState(), 10)).range(48)
+    public final ConfiguredFeature<?, ?> configuredFeature = this.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegister.SLIVER_ORE.get().getDefaultState(), 3)).range(48)
 					.square().count(5);
     public SliverOreFeature() {
         super(OreFeatureConfig.CODEC);

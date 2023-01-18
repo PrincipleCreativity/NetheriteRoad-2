@@ -9,7 +9,7 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -31,6 +31,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import principledev.netheriteroadii.NetheriteRoadII;
 import principledev.netheriteroadii.common.PurifierContainerItemNumber;
+import principledev.netheriteroadii.common.items.PurifierInputBlockItem;
+import principledev.netheriteroadii.common.recipes.PurifierRecipes;
 import principledev.netheriteroadii.common.utils.PurifierData;
 import principledev.netheriteroadii.common.container.AncientPurifierContainer;
 import principledev.netheriteroadii.common.init.BlockRegister;
@@ -112,37 +114,61 @@ public class TileEntityPurifier extends LockableLootTileEntity implements ITicka
     @SuppressWarnings("deprecation")
     @Override
     public void tick() {
-        if(data.storage.getEnergyStored() >= PurifierData.MAX_RF
+        ItemStack netheriteIngotStack = new ItemStack(Items.NETHERITE_INGOT);
+        ItemStack diamondStack = new ItemStack(Items.DIAMOND);
+        for (Item item: PurifierRecipes.inputItem){
+        if (data.storage.getEnergyStored() >= PurifierData.MAX_RF
                 && !data.inventory.get(0).isEmpty()
-                && data.inventory.get(0).getItem() == BlockItem.getItemFromBlock(Blocks.ANCIENT_DEBRIS)
+                && data.inventory.get(0).getItem() == item
                 && (data.inventory.get(1).isEmpty() || data.inventory.get(1).getItem() == Items.NETHERITE_INGOT)
                 && (data.inventory.get(2).isEmpty() || data.inventory.get(2).getItem() == Items.DIAMOND)
         ) {
             data.cool_down -= 1;
             if (data.cool_down <= 0) {
                 data.cool_down = PurifierData.TIME_PER_WORK;
-            }else return;
-        }else return;
-        if(data.storage.getEnergyStored() >= PurifierData.MAX_RF && world instanceof IForgeWorldServer) {
-            data.storage.extractEnergy(PurifierData.MAX_RF,false);
+            } else return;
+        } else return;
+        if (data.storage.getEnergyStored() >= PurifierData.MAX_RF && !(item instanceof PurifierInputBlockItem) && world instanceof IForgeWorldServer) {
+            data.storage.extractEnergy(PurifierData.MAX_RF, false);
             data.inventory.get(0).shrink(1);
-            if(data.inventory.get(1).isEmpty()) {
-                data.inventory.set(1, new ItemStack(Items.NETHERITE_INGOT));
-            }else{
+            if (data.inventory.get(1).isEmpty()) {
+                data.inventory.set(1, netheriteIngotStack);
+            } else {
                 data.inventory.get(1).grow(1);
             }
-            if(Math.random() < 0.2){
-                if(data.inventory.get(2).isEmpty()) {
-                    data.inventory.set(2, new ItemStack(Items.DIAMOND));
-                }else{
+            if (Math.random() < 0.2) {
+                if (data.inventory.get(2).isEmpty()) {
+                    data.inventory.set(2, diamondStack);
+                } else {
                     data.inventory.get(2).grow(1);
                 }
             }
-            world.notifyBlockUpdate(pos,getBlockState(),getBlockState(), Constants.BlockFlags.DEFAULT);
+            world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.DEFAULT);
         }
-        if(this.world != null){
+        if (data.storage.getEnergyStored() >= PurifierData.MAX_RF && item instanceof PurifierInputBlockItem && world instanceof IForgeWorldServer) {
+            data.storage.extractEnergy(PurifierData.MAX_RF, false);
+            data.inventory.get(0).shrink(1);
+            if (data.inventory.get(1).isEmpty()) {
+                netheriteIngotStack.setCount(2);
+                data.inventory.set(1, netheriteIngotStack);
+            } else {
+                data.inventory.get(1).grow(2);
+            }
+            if (Math.random() < 0.3) {
+                if (data.inventory.get(2).isEmpty()) {
+                    diamondStack.setCount(3);
+                    data.inventory.set(2, diamondStack);
+                } else {
+                    data.inventory.get(2).grow(3);
+                }
+            }
+            world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.DEFAULT);
+        }
+
+        if (this.world != null) {
             this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(AbstractFurnaceBlock.LIT, this.data.isWork()), 3);
         }
+    }
     }
 
 

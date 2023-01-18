@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "netheriteroadii:blocks/ancient_rock",
+    "up": "netheriteroadii:blocks/ancient_rock",
+    "north": "netheriteroadii:blocks/ancient_rock",
+    "east": "netheriteroadii:blocks/ancient_rock",
+    "south": "netheriteroadii:blocks/ancient_rock",
+    "west": "netheriteroadii:blocks/ancient_rock",
+    "particle": "netheriteroadii:blocks/ancient_rock"
+  }
+}

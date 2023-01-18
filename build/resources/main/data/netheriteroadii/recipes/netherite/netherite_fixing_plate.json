@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "netheriteroadii:netherite",
+  "pattern": [
+    "XYX",
+    "YYY",
+    "XYX"
+  ],
+  "key": {
+    "X": [
+      {
+        "tag": "forge:rods/netherite"
+      },
+      {
+        "tag": "forge:sticks/netherite"
+      }
+    ],
+    "Y": {
+      "tag": "forge:plates/netherite"
+    }
+  },
+  "result": {
+    "item": "netheriteroadii:netherite_fixing_plate"
+  }
+}

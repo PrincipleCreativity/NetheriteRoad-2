@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "netheriteroadii:netherite",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:nuggets/netherite"
+    }
+  },
+  "result": {
+    "item": "netheriteroadii:netherite_stick",
+    "count": 1
+  }
+}

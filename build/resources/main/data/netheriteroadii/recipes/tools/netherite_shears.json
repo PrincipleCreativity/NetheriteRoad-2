@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "netheriteroadii:tools",
+  "pattern": [
+    "A#A",
+    "#A#",
+    "B#B"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:air"
+    },
+    "A": {
+      "tag": "forge:nuggets/netherite"
+    },
+    "B": [
+      {
+        "tag": "forge:rods/netherite"
+      },
+      {
+        "tag": "forge:sticks/netherite"
+      }
+    ]
+  },
+  "result": {
+    "item": "netheriteroadii:netherite_shears",
+    "count": 1
+  }
+}

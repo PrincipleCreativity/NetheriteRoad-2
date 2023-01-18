@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.math.BlockPos;
 import principledev.netheriteroadii.common.blocks.tileEntity.TileEntityPurifier;
+import principledev.netheriteroadii.common.items.PurifierInputBlockItem;
 import principledev.netheriteroadii.common.slot.PurifierResultSlot;
 
 import javax.annotation.Nullable;
@@ -26,7 +27,7 @@ public class AncientPurifierContainer extends Container{
         assert purifier != null;
         this.addSlot(new Slot(purifier, 0, 56 - 10, 35 + 4){
             public boolean isItemValid(ItemStack stack){
-                return stack.getItem() == Blocks.ANCIENT_DEBRIS.asItem();
+                return stack.getItem() instanceof PurifierInputBlockItem;
             }
         });
         this.addSlot(new PurifierResultSlot(purifier, 1, 116 - 10, 35 + 4));

@@ -7,9 +7,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import principledev.netheriteroadii.NetheriteRoadII;
 import principledev.netheriteroadii.common.items.NetheriteItem;
+import principledev.netheriteroadii.common.items.PurifierInputBlockItem;
 import principledev.netheriteroadii.common.items.misc.*;
 import principledev.netheriteroadii.common.items.tools.Circulator;
 import principledev.netheriteroadii.common.items.tools.NetheriteShears;
+import principledev.netheriteroadii.common.items.tools.sliver.SliverSword;
+import principledev.netheriteroadii.common.recipes.PurifierRecipes;
 
 public class ItemRegister {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NetheriteRoadII.MOD_ID);
@@ -34,7 +37,7 @@ public class ItemRegister {
 
 
     //Tools
-
+    public static final RegistryObject<Item> SLIVER_SWORD;
     public static final RegistryObject<Item> CIRCULATOR;
     public static final RegistryObject<Item> NETHERITE_SHEARS;
 
@@ -57,11 +60,12 @@ public class ItemRegister {
         S_NANOGOLD_STRING_SCREEN = ITEMS.register("s_nanogold_string_screen", NanoGoldStringScreen::new);
         VS_NANOGOLD_STRING_SCREEN = ITEMS.register("vs_nanogold_string_screen", NanoGoldStringScreen::new);
         GOLD_PLATE = ITEMS.register("gold_plate", GoldPlate::new);
+        SLIVER_SWORD = ITEMS.register("sliver_sword", SliverSword::new);
         CIRCULATOR = ITEMS.register("circulator", Circulator::new);
         NETHERITE_SHEARS = ITEMS.register("netherite_shears", NetheriteShears::new);
 
         ANCIENT_PURIFIER_ITEM = ITEMS.register("ancient_purifier", () -> new BlockItem(BlockRegister.ANCIENT_PURIFIER.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
-        ANCIENT_ROCK = ITEMS.register("ancient_rock", () -> new BlockItem(BlockRegister.ANCIENT_ROCK.get(), new Item.Properties().group(NetheriteRoadII.TAB).isImmuneToFire()));
-        SLIVER_ORE_ITEM = ITEMS.register("sliver_ore", () -> new BlockItem(BlockRegister.SLIVER_ORE.get(), new Item.Properties().group(NetheriteRoadII.TAB)));
+        ANCIENT_ROCK = ITEMS.register("ancient_rock", () -> new PurifierInputBlockItem(BlockRegister.ANCIENT_ROCK.get()));
+        SLIVER_ORE_ITEM = ITEMS.register("sliver_ore", () -> new PurifierInputBlockItem(BlockRegister.SLIVER_ORE.get()));
     }
 }

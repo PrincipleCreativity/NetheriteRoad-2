@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'PrincipleDev'
-version = '1.16.5-2.0-SNAPSHOT-DEV-Beta'
+version = '1.16.5-2.0-SNAPSHOT-DEV'
 
 java {
     archivesBaseName = 'netheriteroad2'

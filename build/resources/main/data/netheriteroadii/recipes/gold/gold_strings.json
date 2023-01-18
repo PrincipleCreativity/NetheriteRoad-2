@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "netheriteroadii:gold",
+  "ingredients": [
+    {
+      "tag": "forge:shears"
+    },
+    {
+      "tag": "forge:plates/gold"
+    }
+  ],
+  "result": {
+    "item": "netheriteroadii:gold_string",
+    "count": 9
+  }
+}

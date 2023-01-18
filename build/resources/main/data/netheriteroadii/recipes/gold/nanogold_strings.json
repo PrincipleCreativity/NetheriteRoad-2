@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "netheriteroadii:gold",
+  "ingredients": [
+    {
+      "tag": "forge:shears"
+    },
+    {
+      "item": "netheriteroadii:micron_gold_string"
+    },
+    {
+      "item": "netheriteroadii:circulator"
+    }
+  ],
+  "result": {
+    "item": "netheriteroadii:nanogold_string",
+    "count": 64
+  }
+}
