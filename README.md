@@ -1,5 +1,5 @@
 # Netherite Road 2
-A **high version** of Netherite Alloy ***tech/utility/adventure*** mod.
+A **Version 1.16.5 and above** of Netherite Alloy ***tech/utility/adventure*** mod.
  
 Netherite Road 2 repositoriy description|下界之路2(Netherite Road 2)仓库说明
 ----
